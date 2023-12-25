@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const Header = () => {
   return (
-    <header className='hidden sm:block fixed top-0 left-0 bg-background/40 backdrop-blur-lg z-10 w-screen'>
+    <header className='hidden sm:block fixed top-0 left-0 bg-background/40 backdrop-blur-lg z-20 w-screen'>
       <div className='wrapper mx-auto px-2 sm:px-3 md:px-4 py-3 text-white text-center flex items-center justify-between w-full'>
         <Link href="/" className='flex gap-2 md:gap-5'>
           <div className="relative aspect-square w-8">
@@ -18,9 +18,9 @@ export const Header = () => {
         <nav>
           <ul>
             <li className='flex items-center gap-12 md:gap-24'>
-              <a href="#">Описание</a>
-              <a href="#">Наша продукция</a>
-              <a href="#">Отзывы гостей</a>
+              <a className='hover:underline' href="#hero">Описание</a>
+              <a className='hover:underline' href="#products">Наша продукция</a>
+              <a className='hover:underline' href="#feedback">Отзывы гостей</a>
             </li>
           </ul>
         </nav>

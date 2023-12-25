@@ -12,7 +12,7 @@ const sizes = {
 
 const button: React.FC<IProps> = ({size = "default", ...props}) => {
   return (
-    <button {...props} className={`${sizes[size]} uppercase text-white font-black rounded-xl md:rounded-3xl relative ${props.className}`}>
+    <button {...props} className={`${sizes[size]} no-highlight uppercase text-white font-black rounded-xl md:rounded-3xl relative ${props.className}`}>
       {props.children}
     </button>
   )

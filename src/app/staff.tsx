@@ -1,13 +1,15 @@
 "use client"
 import React from 'react'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Navigation } from "swiper/modules";
+import Button from '@/components/button';
+import { ArrowCircle } from './svg/arrowCircle.svg';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/effect-creative";
-import Button from '@/components/button';
-import { ArrowCircle } from './svg/arrowCircle.svg';
+import { ModalTypes } from './modal/modal';
+import { useRouter } from 'next/navigation';
 
 interface ISlide {
   name: string,
@@ -15,52 +17,60 @@ interface ISlide {
   experience: string,
 }
 
-export const Staff = () => {
-  const [isFirst, setIsFirst] = React.useState(true);
-  const [isLast, setIsLast] = React.useState(false);
-  const slides: ISlide[] = [
-    {
-      name: 'Алексей Смирнов',
-      position: 'Мастер маникюра',
-      experience: '3 года',
-    },
-    {
-      name: 'Елена Петрова',
-      position: 'Стилист',
-      experience: '5 лет',
-    },
-    {
-      name: 'Дмитрий Иванов',
-      position: 'Барбер',
-      experience: '2 года',
-    },
-    {
-      name: 'Ольга Сидорова',
-      position: 'Косметолог',
-      experience: '4 года',
-    },
-    {
-      name: 'Айгуль Жумагалиева',
-      position: 'Мастер по бровям',
-      experience: '3 года',
-    },
-    {
-      name: 'Нурлан Ибраимов',
-      position: 'Массажист',
-      experience: '1 год',
-    },
-    {
-      name: 'Асель Калиева',
-      position: 'Мастер по наращиванию ресниц',
-      experience: '2 года',
-    },
-    {
-      name: 'Бауыржан Мухамеджанов',
-      position: 'Парикмахер',
-      experience: '5 лет',
-    },
-  ];
+export const staff: ISlide[] = [
+  {
+    name: 'Алексей Смирнов',
+    position: 'Мастер маникюра',
+    experience: '3 года',
+  },
+  {
+    name: 'Елена Петрова',
+    position: 'Стилист',
+    experience: '5 лет',
+  },
+  {
+    name: 'Дмитрий Иванов',
+    position: 'Барбер',
+    experience: '2 года',
+  },
+  {
+    name: 'Ольга Сидорова',
+    position: 'Косметолог',
+    experience: '4 года',
+  },
+  {
+    name: 'Айгуль Жумагалиева',
+    position: 'Мастер по бровям',
+    experience: '3 года',
+  },
+  {
+    name: 'Нурлан Ибраимов',
+    position: 'Массажист',
+    experience: '1 год',
+  },
+  {
+    name: 'Асель Калиева',
+    position: 'Мастер по наращиванию ресниц',
+    experience: '2 года',
+  },
+  {
+    name: 'Бауыржан Мухамеджанов',
+    position: 'Парикмахер',
+    experience: '5 лет',
+  },
+];
 
+interface IProps {
+  openModal: (type: ModalTypes) => void
+}
+
+export const Staff: React.FC<IProps> = ({ openModal }) => {
+  const router = useRouter()
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const handleOnClick = () => {
+    router.replace(`/?master=${staff[activeIndex].name}`, { scroll: true });
+    openModal('appointment');
+  }
   return (
     <section className="wrapper py-10 relative">
       <Swiper
@@ -97,13 +107,12 @@ export const Staff = () => {
             slidesPerView: 2,
           },
         }}
-        onSlideChange={({ isBeginning, isEnd }) => {
-          setIsFirst(isBeginning);
-          setIsLast(isEnd);
+        onSlideChange={({ activeIndex }) => {
+          setActiveIndex(activeIndex)
         }}
         className="swiper-staff w-full xl:w-10/12 max-w-5xl"
       >
-      {slides.map((slide, index) => (
+      {staff.map((slide, index) => (
         <SwiperSlide key={index} className='backdrop-blur-2xl overflow-visible'>
           {({ isActive }): React.ReactNode => (
             <div className={`${isActive ? "" : "blur-sm opacity-50"} aspect-[1.6] rounded-3xl border-primary border-2 bg-primary/25 flex flex-col items-center justify-center pb-10 md:pb-12 transition-all`}>
@@ -118,14 +127,14 @@ export const Staff = () => {
       ))}
       </Swiper>
       <div className='w-full xl:w-10/12 max-w-5xl absolute bottom-0 left-1/2 -translate-x-1/2 z-10 flex justify-center'>
-        <Button className='w-11/12 xs:w-4/5 sm:w-3/5 md:w-[55%]'>
+        <Button className='w-11/12 xs:w-4/5 sm:w-3/5 md:w-[55%]' onClick={handleOnClick}>
           Записаться на прием
         </Button>
       </div>
-      <div id='swiper-next' className={`${isLast ? "opacity-50" : ""} no-highlight absolute top-1/2 -translate-y-1/2 right-0 z-10 w-20`}>
+      <div id='swiper-next' className={`${activeIndex === staff.length - 1 ? "opacity-50" : ""} no-highlight absolute top-1/2 -translate-y-1/2 right-0 z-10 w-20`}>
         <ArrowCircle />
       </div>
-      <div id='swiper-prev' className={`${isFirst ? "opacity-50" : ""} no-highlight absolute top-1/2 -translate-y-1/2 left-0 rotate-180 w-20 z-10`}>
+      <div id='swiper-prev' className={`${activeIndex === 0 ? "opacity-50" : ""} no-highlight absolute top-1/2 -translate-y-1/2 left-0 rotate-180 w-20 z-10`}>
         <ArrowCircle />
       </div>
     </section>

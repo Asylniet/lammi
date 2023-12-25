@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" className='html'>
-      <body className={`${montserrat.className}`}>{children}</body>
+      <body className={`${montserrat.className} max-w-[100vw] overflow-x-hidden`}>{children}</body>
     </html>
   )
 }

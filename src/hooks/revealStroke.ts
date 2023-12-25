@@ -3,7 +3,7 @@ import React from "react";
 export const useRevealStroke = (rootId: string, masks: string[], baseDuration: number = 1) => {
   const [isIntersecting, setIsIntersecting] = React.useState(false);
   
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const root = document.querySelector(rootId) as HTMLElement
     if (!root) return
     
@@ -15,10 +15,10 @@ export const useRevealStroke = (rootId: string, masks: string[], baseDuration: n
         rootMargin: "0px",
         threshold: 0.1,
       }
-    );
-    
-    observer.observe(root);
-
+      );
+      
+      observer.observe(root);
+      
     masks.forEach((mask, index, el) => {
       const id = `#mask-${mask}`
       const path = root.querySelector(id) as SVGPathElement
@@ -41,12 +41,9 @@ export const useRevealStroke = (rootId: string, masks: string[], baseDuration: n
       const path = root.querySelector(id) as SVGPathElement
       if (!path) return
       
-      const length = path?.getTotalLength();
-      const multiplier = Math.max(1, Math.floor(length / 100));
-      
       setTimeout(() => {
         path.classList.add('stroke-reveal');
-      }, baseDuration * multiplier * 600 * index);
+      }, baseDuration * 600 * index);
     });
   }, [rootId, masks, isIntersecting, baseDuration]);
 }

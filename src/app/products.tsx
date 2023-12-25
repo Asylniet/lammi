@@ -28,7 +28,7 @@ export const Products = () => {
   if(!width) return null;
 
   return (
-    <section className='wrapper px-2 sm:px-3 md:px-4 relative'>
+    <section id='products' className='wrapper px-2 sm:px-3 md:px-4 relative'>
       <div className="pt-20"></div>
       <div className="relative max-w-fit mb-8 sm:mb-14 ps-24 md:ps-22 xl:ps-20">
         <h1 className='uppercase font-black text-4xl sm:text-5xl'>продукция</h1>

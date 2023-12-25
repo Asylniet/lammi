@@ -3,7 +3,7 @@ import { useRevealStroke } from '@/hooks/revealStroke';
 import React from 'react'
 
 const WhySvg = () => {
-  useRevealStroke('#why-stroke', ['p', 'o', 'c', 'e', 'm', 'u'], 0.4);
+  useRevealStroke('#why-stroke', ['p', 'o', 'c', 'e', 'm', 'u'], 0.6);
   
   return (
     <svg id='why-stroke' className='w-full' viewBox="0 0 506 174" fill="none" xmlns="http://www.w3.org/2000/svg">
