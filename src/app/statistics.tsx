@@ -15,7 +15,7 @@ export const Statistics = () => {
           </div>
         </div>
         <Numbers className='mb-8 sm:mb-14' number={5887} />
-        <h2 className="w-full uppercase text-center text-xl font-black">
+        <h2 data-aos="fade-up" data-aos-delay="300" className="w-full uppercase text-center text-xl font-black">
           довольных клиентов
         </h2>
       </div>
@@ -27,7 +27,7 @@ export const Statistics = () => {
           </div>
         </div>
         <Numbers className='mb-8 sm:mb-14' number={3216} />
-        <h2 className="w-full uppercase text-center text-xl font-black">
+        <h2 data-aos="fade-up" data-aos-delay="300" className="w-full uppercase text-center text-xl font-black">
           довольных студентов
         </h2>
       </div>

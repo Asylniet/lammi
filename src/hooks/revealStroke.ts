@@ -13,7 +13,7 @@ export const useRevealStroke = (rootId: string, masks: string[], baseDuration: n
       },
       {
         rootMargin: "0px",
-        threshold: 0.1,
+        threshold: 1,
       }
       );
       

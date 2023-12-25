@@ -13,7 +13,7 @@ export const Salons = () => {
         </div>
       </div>
       <div className="flex flex-col md:flex-row flex-wrap items-start justify-center md:justify-between gap-10 md:gap-6 mb-12">
-        <div className='flex-1 max-w-sm max-md:mx-auto'>
+        <div data-aos="fade-up" data-aos-delay="100" className='flex-1 max-w-sm max-md:mx-auto'>
           <div className="relative w-full aspect-square overflow-hidden rounded-2xl mb-4">
             <Image src="/location-1.jpg" alt='Таугуль' fill sizes='100%' />
           </div>
@@ -25,7 +25,7 @@ export const Salons = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper, turpis non ullamcorper faucibus, lacus ex sagittis magna, sed pharetra augue purus id quam. 
           </p>
         </div>
-        <div className='flex-1 max-w-sm max-md:mx-auto'>
+        <div data-aos="fade-up" data-aos-delay="200" className='flex-1 max-w-sm max-md:mx-auto'>
           <div className="relative w-full aspect-square overflow-hidden rounded-2xl mb-4">
             <Image src="/location-2.jpg" alt='Назарбаева' fill sizes='100%' />
           </div>
@@ -37,7 +37,7 @@ export const Salons = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper, turpis non ullamcorper faucibus, lacus ex sagittis magna, sed pharetra augue purus id quam. 
           </p>
         </div>
-        <div className='flex-1 max-w-sm max-md:mx-auto'>
+        <div data-aos="fade-up" data-aos-delay="300" className='flex-1 max-w-sm max-md:mx-auto'>
           <div className="relative w-full aspect-square overflow-hidden rounded-2xl mb-4">
             <Image src="/location-3.jpg" alt='Астана' fill sizes='100%' />
           </div>

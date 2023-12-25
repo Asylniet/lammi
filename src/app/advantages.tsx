@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import WhySvg from './svg/why.svg'
+import { Parallax } from 'react-scroll-parallax'
 
 export const Advantages = () => {
   return (
@@ -20,41 +21,51 @@ export const Advantages = () => {
       </p>
       <div className="flex flex-wrap gap-6">
         <div className="relative flex-1 background-gradient flex justify-end text-center pb-6 flex-col h-72 rounded-md px-2 mx-auto min-w-[250px] max-w-[300px] sm:max-w-none xs:min-w-[300px] xl:min-w-[400px]">
-          <div className="absolute left-1/2 -translate-x-1/2 -top-24 aspect-[1] h-80">
-            <Image className='object-contain' src="/benefit-1.png" fill sizes='100%' alt='4 года на рынке' />
-          </div>
+          <Parallax speed={4}>
+            <div className="absolute left-1/2 -translate-x-1/2 -top-64 aspect-[1] h-80">
+              <Image className='object-contain' src="/benefit-1.png" fill sizes='100%' alt='4 года на рынке' />
+            </div>
+          </Parallax>
           <div className="text-3xl font-black">
             4 года на рынке
           </div>
         </div>
         <div className="relative flex-1 background-gradient flex justify-end text-center pb-8 flex-col h-72 rounded-md px-2 mx-auto min-w-[250px] max-w-[300px] sm:max-w-none xs:min-w-[300px] xl:min-w-[400px]">
-          <div className="absolute left-1/2 -translate-x-1/2 -top-8 aspect-[1.4] h-44">
-            <Image className='object-contain' src="/benefit-2.png" fill sizes='100%' alt='Ламимейкеров экспертного класса' />
-          </div>
+          <Parallax speed={5}>
+            <div className="absolute left-1/2 -translate-x-1/2 -top-44 aspect-[1.4] h-44">
+              <Image className='object-contain' src="/benefit-2.png" fill sizes='100%' alt='Ламимейкеров экспертного класса' />
+            </div>
+          </Parallax>
           <div className="text-3xl font-black">
             Ламимейкеров экспертного класса
           </div>
         </div>
         <div className="relative flex-1 background-gradient flex justify-end text-center pb-8 flex-col h-72 rounded-md px-2 mx-auto min-w-[250px] max-w-[300px] sm:max-w-none xs:min-w-[300px] xl:min-w-[400px]">
-          <div className="absolute left-1/2 -translate-x-1/2 -top-32 xs:-top-24 lg:-top-32 aspect-[1] h-80">
-            <Image className='object-contain' src="/benefit-3.png" fill sizes='100%' alt='Гарантия результата либо вернем деньги' />
-          </div>
+          <Parallax speed={6}>
+            <div className="absolute left-1/2 -translate-x-1/2 -top-64 aspect-[1] h-80">
+              <Image className='object-contain' src="/benefit-3.png" fill sizes='100%' alt='Гарантия результата либо вернем деньги' />
+            </div>
+          </Parallax>
           <div className="text-3xl font-black">
             Гарантия результата либо вернем деньги
           </div>
         </div>
         <div className="relative flex-1 background-gradient flex justify-end text-center pb-8 flex-col h-72 rounded-md px-2 mx-auto min-w-[250px] max-w-[300px] sm:max-w-none xs:min-w-[300px] xl:min-w-[400px]">
-          <div className="absolute left-1/2 -translate-x-1/2 -top-16 aspect-[1] h-72">
-            <Image className='object-contain' src="/benefit-4.png" fill sizes='100%' alt='Авторская техника ламинирования' />
-          </div>
+          <Parallax speed={7}>
+            <div className="absolute left-1/2 -translate-x-1/2 -top-64 aspect-[1] h-72">
+              <Image className='object-contain' src="/benefit-4.png" fill sizes='100%' alt='Авторская техника ламинирования' />
+            </div>
+          </Parallax>
           <div className="text-3xl font-black">
             Авторская техника ламинирования
           </div>
         </div>
         <div className="relative flex-1 background-gradient flex justify-end text-center pb-8 flex-col h-72 rounded-md px-2 mx-auto min-w-[250px] max-w-[300px] sm:max-w-none xs:min-w-[300px] xl:min-w-[400px]">
-          <div className="absolute left-1/2 -translate-x-1/2 -top-28 aspect-[1] h-80">
-            <Image className='object-contain' src="/benefit-5.png" fill sizes='100%' alt='Собственное производство' />
-          </div>
+          <Parallax speed={5}>
+            <div className="absolute left-1/2 -translate-x-1/2 -top-64 aspect-[1] h-80">
+              <Image className='object-contain' src="/benefit-5.png" fill sizes='100%' alt='Собственное производство' />
+            </div>
+          </Parallax>
           <div className="text-3xl font-black">
             Собственное <br /> производство
           </div>

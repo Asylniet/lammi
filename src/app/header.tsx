@@ -18,9 +18,9 @@ export const Header = () => {
         <nav>
           <ul>
             <li className='flex items-center gap-12 md:gap-24'>
-              <a className='hover:underline' href="#hero">Описание</a>
-              <a className='hover:underline' href="#products">Наша продукция</a>
-              <a className='hover:underline' href="#feedback">Отзывы гостей</a>
+              <a data-aos="fade-up" data-aos-delay="50" className='hover:underline' href="#hero">Описание</a>
+              <a data-aos="fade-up" data-aos-delay="100" className='hover:underline' href="#products">Наша продукция</a>
+              <a data-aos="fade-up" data-aos-delay="150" className='hover:underline' href="#feedback">Отзывы гостей</a>
             </li>
           </ul>
         </nav>

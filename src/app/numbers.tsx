@@ -14,7 +14,7 @@ export const Numbers: React.FC<IProps> = ({ number, className }) => {
   return (
     <div className={`mx-auto flex gap-8 ${className}`}>
       {digits.map((digit, index) => (
-        <NumberCard key={index} digit={digit} />
+        <NumberCard key={index} aos="fade-up" aosDelay={`${index * 50}`} digit={digit} />
       ))}
     </div>
   )
