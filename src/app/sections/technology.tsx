@@ -2,9 +2,9 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Navigation } from "swiper/modules";
-import { OurSvg } from './svg/our.svg'
-import { ArrowCircle } from './svg/arrowCircle.svg';
-import { EyebrowSvg } from './svg/eyebrow.svg';
+import { OurSvg } from '../svg/our.svg';
+import { ArrowCircle } from '../svg/arrowCircle.svg';
+import { EyebrowSvg } from '../svg/eyebrow.svg';
 
 interface ISlide {
   title: string,

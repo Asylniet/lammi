@@ -1,31 +1,28 @@
-"use client"
 import React from "react";
-import { Advantages } from "./advantages";
-import { Feedback } from "./feedback";
-import { Header } from "./header";
-import { Hero } from "./hero";
-import { Modal, ModalTypes } from "./modal/modal";
-import { Products } from "./products";
-import { Salons } from "./salons";
-import { Staff } from "./staff";
-import { Statistics } from "./statistics";
-import { Technology } from "./technology";
+import { Advantages } from "./sections/advantages";
+import { Feedback } from "./sections/feedback";
+import { Header } from "./layout/header";
+import { Hero } from "./sections/hero";
+import { Modal } from "./modal/modal";
+import { Products } from "./sections/products";
+import { Salons } from "./sections/salons";
+import { Staff } from "./sections/staff";
+import { Statistics } from "./sections/statistics";
+import { Technology } from "./sections/technology";
+import { getTrainings } from "@/api/training";
+import { getBranches } from "@/api/branch";
 
-export default function Home() {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [type, setType] = React.useState<ModalTypes>("appointment")
-
-  const openModal = (type: ModalTypes) => {
-    setType(type)
-    setIsOpen(true)
-  }
+export default async function Home() {
+  const trainingsPromise = getTrainings();
+  const branchPromise = getBranches();
+  const [trainings, branches] = await Promise.all([trainingsPromise, branchPromise]);
   return (
-    <main className={`wrapper ${isOpen ? "overflow-y-hidden" : ""}`}>
+    <main className={`wrapper`}>
       <Header />
-      <Hero openModal={openModal} />
+      <Hero />
       <Statistics />
       <div className="py-20"></div>
-      <Staff openModal={openModal} />
+      <Staff />
       <div className="py-20"></div>
       <Products />
       <div className="py-20"></div>
@@ -36,7 +33,7 @@ export default function Home() {
       <Feedback />
       <div className="py-20"></div>
       <Salons />
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} type={type} />
+      <Modal trainings={trainings} branches={branches} />
     </main>
   )
 }

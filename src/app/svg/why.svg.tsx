@@ -2,7 +2,7 @@
 import { useRevealStroke } from '@/hooks/revealStroke';
 import React from 'react'
 
-const WhySvg = () => {
+export const WhySvg = () => {
   useRevealStroke('#why-stroke', ['p', 'o', 'c', 'e', 'm', 'u'], 0.6);
   
   return (

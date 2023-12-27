@@ -1,10 +1,10 @@
 "use client"
 import React from 'react'
-import { FeedbacksSvg } from './svg/feedbacks.svg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Navigation } from "swiper/modules";
-import { ArrowCircle } from './svg/arrowCircle.svg';
-import { StarSvg } from './svg/star.svg';
+import { FeedbacksSvg } from '../svg/feedbacks.svg';
+import { ArrowCircle } from '../svg/arrowCircle.svg';
+import { StarSvg } from '../svg/star.svg';
 
 interface ISlide {
   name: string,

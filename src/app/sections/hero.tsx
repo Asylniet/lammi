@@ -1,23 +1,22 @@
+"use client"
 import Button from "@/components/button"
 import Image from "next/image"
-import { ModalTypes } from "./modal/modal"
 import { Parallax } from "react-scroll-parallax"
 import React from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { useModalStore } from "@/store/modal"
 
-interface IProps {
-  openModal: (type: ModalTypes) => void
-}
-
-export const Hero: React.FC<IProps> = ({ openModal }) => {
+export const Hero: React.FC = ({ }) => {
   React.useEffect(() => {
     AOS.init({
-      duration: 500,
+      duration: 0,
       once: true,
       offset: 100,
     })
   }, []);
+  
+  const openModal = useModalStore(state => state.openModal);
   return (
     <section id="hero" className="pt-24 sm:pt-0 h-screen min-h-[18.75rem] max-h-[60rem] flex flex-col items-center sm:items-stretch sm:justify-center relative px-2 sm:px-3 md:px-4">
       <div className="relative w-full">

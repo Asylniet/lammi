@@ -1,7 +1,9 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
-import WhySvg from './svg/why.svg'
 import { Parallax } from 'react-scroll-parallax'
+import { WhySvg } from '../svg/why.svg'
+
 
 export const Advantages = () => {
   return (

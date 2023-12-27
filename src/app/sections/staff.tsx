@@ -3,13 +3,12 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Navigation } from "swiper/modules";
 import Button from '@/components/button';
-import { ArrowCircle } from './svg/arrowCircle.svg';
+import { ArrowCircle } from '../svg/arrowCircle.svg';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/effect-creative";
-import { ModalTypes } from './modal/modal';
-import { useRouter } from 'next/navigation';
+import { useModalStore } from '@/store/modal';
 
 interface ISlide {
   name: string,
@@ -60,15 +59,10 @@ export const staff: ISlide[] = [
   },
 ];
 
-interface IProps {
-  openModal: (type: ModalTypes) => void
-}
-
-export const Staff: React.FC<IProps> = ({ openModal }) => {
-  const router = useRouter()
+export const Staff: React.FC = ({ }) => {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const openModal = useModalStore(state => state.openModal);
   const handleOnClick = () => {
-    router.replace(`/?master=${staff[activeIndex].name}`, { scroll: true });
     openModal('appointment');
   }
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
-import { SalonSvg } from './svg/salon.svg'
 import Image from 'next/image'
-import { PlaceSvg } from './svg/place.svg'
+import { SalonSvg } from '../svg/salon.svg'
+import { PlaceSvg } from '../svg/place.svg'
 
 export const Salons = () => {
   return (

@@ -1,8 +1,8 @@
 
 import React from 'react'
-import { Numbers } from './numbers'
-import { UsSvg } from './svg/us.svg'
-import { WeSvg } from './svg/we.svg'
+import { Numbers } from '../../components/numbers'
+import { UsSvg } from '../svg/us.svg'
+import { WeSvg } from '../svg/we.svg'
 
 export const Statistics = () => {
   return (

@@ -1,31 +1,33 @@
 import React from 'react'
+import { Training } from '@/api/training'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
-import { First } from './courseSlides/first'
 import Button from '@/components/button'
-import { Second } from './courseSlides/second'
+import { First } from './courseSlides/first'
+import { useModalStore } from '@/store/modal'
 
-export const CourseModal = () => {
+interface Props {
+  trainings: Training[],
+}
+
+export const CourseModal: React.FC<Props> = ({ trainings }) => {
+  const openModal = useModalStore(state => state.openModal);
   return (
-    <Swiper allowTouchMove={false} className='w-full'>
+    <Swiper allowTouchMove={false} allowSlidePrev={false}>
       <SwiperSlide>
-        <First />
-      </SwiperSlide>
-      <SwiperSlide >
-        {({ isActive }): React.ReactNode => (
-          <Second isActive={isActive} />
-        )}
+        <First trainings={trainings} />
       </SwiperSlide>
       <SwiperSlide>
         <div className='w-full h-full flex flex-col items-center justify-center gap-6 text-center px-4'>
           <Image src="/check.svg" width={60} height={60} alt='' />
           <div className="text-2xl font-black uppercase">
-            оПЛАТА ПРОШЛА УСПЕШНО!
+            Вы успешно записались на курс
           </div>
           <p className='text-accent mb-auto'>
-            LOREM IPSUM LOREM IPSUM LOREM LOREM IPSUM <br /> LOREM IPSUM LOREM  LOREM IPSUM LOREM
+            Наши операторы свяжутся с вами в ближайшее время <br />
+            Не забудьте записаться на прием к нашим специалистам
           </p>
-          <Button className='mt-auto text-foreground'>
+          <Button onClick={() => openModal("appointment")} className='mt-auto text-foreground'>
             Записаться на прием
           </Button>
         </div>

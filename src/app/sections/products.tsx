@@ -1,15 +1,15 @@
 "use client"
 import React from 'react'
-import { OurSvg } from './svg/our.svg'
-import { Product } from './product'
+import { Product } from '../../components/product'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Navigation } from "swiper/modules";
+import { useGetScreenSize } from '@/hooks/getScreenSize'
+import { OurSvg } from '../svg/our.svg'
+import { ArrowCircle } from '../svg/arrowCircle.svg'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/effect-creative";
-import { ArrowCircle } from './svg/arrowCircle.svg'
-import { useGetScreenSize } from '@/hooks/getScreenSize'
 
 const products: Product[] = new Array(9).fill({
   title: 'Lorem ipsum',

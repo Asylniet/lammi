@@ -1,6 +1,7 @@
 import React, { use } from 'react'
 import Image from 'next/image'
 import { useGetScreenSize } from '@/hooks/getScreenSize';
+import Button from './button';
 
 export type Product = {
   title: string,
@@ -32,7 +33,7 @@ export const Product: React.FC<IProps> = ({ title, description, category, image,
         <div className="line-through text-accent">{price}₸</div>
         <div>{(100 - discount) / 100 * price}₸</div>
       </div>
-      <button className={`transition-all white uppercase w-11/12 font-black py-2 px-8 mx-auto hover:rounded-md`}>
+      <button className={`button transition-all white uppercase w-11/12 font-black py-2 px-8 mx-auto hover:rounded-md`}>
         Купить
       </button>
     </div>

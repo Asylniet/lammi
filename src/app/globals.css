@@ -46,23 +46,23 @@ section {
   scroll-snap-align: start;
 } */
 
-button {
+.button {
   border: none;
   transition: 0.2s ease;
   width: fit-content;
 }
 
-button:not(.white) {
+.button:not(.white) {
   box-shadow: 0px -3px 2px 0px rgba(0, 0, 0, 0.50) inset;
   background: linear-gradient(95deg, #D18692 19.08%, #DDAAB1 51.76%, #D18692 97.32%);
 }
 
-button.white {
+.button.white {
   background-color: #FFF;
   color: rgb(var(--color-background));
 }
 
-button:not(.white)::before {
+.button:not(.white)::before {
   content: "";
   box-sizing: content-box;
   display: block;
@@ -78,17 +78,17 @@ button:not(.white)::before {
 }
 
 @media screen and (min-width: 768px) {
-  button:not(.white)::before {
+  .button:not(.white)::before {
     border-radius: 1.5rem;
   }
 }
 
-button:hover::before {
+.button:hover::before {
   padding: 0.25px;
   transform: translate(0, 0.5px);
 }
 
-button:disabled {
+.button:disabled {
   background: linear-gradient(95deg, #88565e 19.08%, #a58085 51.76%, #9b646e 97.32%);
   color: rgba(var(--color-foreground), 0.7);
   cursor: not-allowed;
@@ -229,5 +229,24 @@ input::placeholder {
 
 .tab.active:nth-child(1):after {
   background-color: red;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+}
+
+.spinner .path {
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes dash {
+  0% {stroke-dasharray: 1, 150; stroke-dashoffset: 0;}
+  50% {stroke-dasharray: 90, 150; stroke-dashoffset: -35;}
+  100% {stroke-dasharray: 90, 150; stroke-dashoffset: -124;}
 }
 
