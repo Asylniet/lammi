@@ -16,6 +16,7 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
   const [serviceId, setServiceId] = React.useState<number | undefined>();
   const [specialistId, setSpecialistId] = React.useState<number | undefined>();
   const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(undefined);
+  const [selectedDateId, setSelectedDateId] = React.useState<number | undefined>(undefined);
   const [selectedHour, setSelectedHour] = React.useState<number | undefined>(undefined);
 
   React.useEffect(() => {
@@ -79,11 +80,24 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     },
   });
 
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSelectedDateId(dateQuery.data?.find(date => new Date(date.name).setHours(0, 0, 0, 0) === selectedDate?.setHours(0, 0, 0, 0))?.id);
+    appointmentMutation.mutate({
+      phone_number: phone,
+      branch_id: branchId!,
+      service_id: serviceId!,
+      employee_id: specialistId!,
+      date_id: selectedDateId!,
+      time_id: selectedHour!,
+    });
+  }
+
   return (
     <>
       <h1 className='font-bold uppercase text-center text-xl px-2 mb-2'>ЗАПИСАТЬСЯ НА ПРОЦЕДУРУ</h1>
       <div className="bg-accent w-full h-px mb-6"></div>
-      <form className='mx-auto max-w-[600px] px-6'>
+      <form onSubmit={onSubmit} className='mx-auto max-w-[600px] px-6'>
         <div className='mb-6'>
           <label htmlFor='phone'>Номер телефона</label>
           <input type="tel" placeholder='+7 777 777 77 77' id='phone' value={phone} onChange={(e) => setPhone(e.target.value)} />

@@ -10,7 +10,7 @@ import { useModalStore } from "@/store/modal"
 export const Hero: React.FC = ({ }) => {
   React.useEffect(() => {
     AOS.init({
-      duration: 0,
+      duration: 500,
       once: true,
       offset: 100,
     })
