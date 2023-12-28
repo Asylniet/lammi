@@ -113,7 +113,7 @@ export const Products = () => {
         {products.map((product, index) => (
           <SwiperSlide key={index}>
             {({ isActive }): React.ReactNode => (
-              <Product {...product} id={index} isActive={isActive} />
+              <Product {...product} isActive={isActive} />
             )}
           </SwiperSlide>
         ))}

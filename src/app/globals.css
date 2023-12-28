@@ -195,7 +195,7 @@ input:focus {
 }
 
 input::placeholder {
-  color: rgb(var(--color-background));
+  color: rgb(var(--color-accent));
   text-transform: uppercase;
 }
 
