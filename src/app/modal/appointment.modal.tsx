@@ -16,7 +16,6 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
   const [serviceId, setServiceId] = React.useState<number | undefined>();
   const [specialistId, setSpecialistId] = React.useState<number | undefined>();
   const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(undefined);
-  const [selectedDateId, setSelectedDateId] = React.useState<number | undefined>(undefined);
   const [selectedHour, setSelectedHour] = React.useState<number | undefined>(undefined);
 
   React.useEffect(() => {
@@ -49,6 +48,8 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     queryKey: ['categories', branchId],
     queryFn: () => getCategories(branchId!),
     enabled: !categoryDisabled,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 
   const categoryQuery = useCategoryQuery(branchId);
@@ -57,6 +58,8 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     queryKey: ['services', branchId, categoryId],
     queryFn: () => getServices(branchId!, categoryId!),
     enabled: !serviceDisabled,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 
   const serviceQuery = useServiceQuery(branchId, categoryId);
@@ -65,6 +68,8 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     queryKey: ['specialists', branchId, serviceId],
     queryFn: () => getSpeicalists(branchId!, serviceId!),
     enabled: !specialistDisabled,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 
   const specialistQuery = useSpecialistQuery(branchId, serviceId);
@@ -73,6 +78,8 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     queryKey: ['dates', branchId, serviceId, specialistId],
     queryFn: () => getDates(branchId!, serviceId!, specialistId!),
     enabled: !dateDisabled,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 
   const dateQuery = useDateQuery(branchId, serviceId, specialistId);
@@ -81,6 +88,8 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     queryKey: ['hours', branchId, serviceId, specialistId, date],
     queryFn: () => getTimes(branchId!, serviceId!, specialistId!, date!.toISOString().slice(0, 10)),
     enabled: !hourDisabled,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 
   const hourQuery = useHourQuery(branchId, serviceId, specialistId, selectedDate);
@@ -95,13 +104,14 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSelectedDateId(dateQuery.data?.find(date => new Date(date.name).setHours(0, 0, 0, 0) === selectedDate?.setHours(0, 0, 0, 0))?.id);
+    const dateId = dateQuery.data?.find(date => new Date(date.name).setHours(0, 0, 0, 0) === selectedDate?.setHours(0, 0, 0, 0))?.id;
     appointmentMutation.mutate({
       phone_number: phone,
       branch_id: branchId!,
+      category_id: categoryId!,
       service_id: serviceId!,
       employee_id: specialistId!,
-      date_id: selectedDateId!,
+      date_id: dateId!,
       time_id: selectedHour!,
     });
   }
@@ -222,7 +232,7 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
           </div>
         </div>
         <div className="mx-auto w-fit">
-          <Button disabled={selectedHour === undefined || selectedHour < 0} className='text-foreground' type='button'>
+          <Button status={appointmentMutation.status} disabled={selectedHour === undefined || selectedHour < 0 || !phone} className='text-foreground' type='submit'>
               Записаться на прием
           </Button>
         </div>

@@ -72,6 +72,7 @@ export const getTimes = async (branchId: number, serviceId: number, specialistId
 
 interface Appointment {
   branch_id: number,
+  category_id?: number,
   service_id: number,
   employee_id: number,
   date_id: number,
@@ -79,15 +80,16 @@ interface Appointment {
   phone_number: string,
 }
 
-export const makeAppointment = async ({branch_id, service_id, employee_id, date_id, time_id, phone_number}: Appointment): Promise<string> => {
+export const makeAppointment = async ({branch_id, service_id, employee_id, date_id, time_id, phone_number, category_id}: Appointment): Promise<string> => {
   try {
-    const res = await fetch(`${API_URL}/appointments`, {
+    const res = await fetch(`${API_URL}/bookings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         branch_id,
+        category_id,
         service_id,
         employee_id,
         date_id,
@@ -121,6 +123,20 @@ export const makeOrder = async (params: Order): Promise<string> => {
     return res;
   } catch (error) {
     console.log(error);
+    throw error;
+  }
+}
+
+export type CustomSpecialist = {
+  name: string,
+  position: string,
+}
+
+export const getCustomSpecialists = async (): Promise<CustomSpecialist[]> => {
+  try {
+    const res = await fetch(`${API_URL}/specialists`)
+    return res.json()
+  } catch (error) {
     throw error;
   }
 }

@@ -44,7 +44,7 @@ export const products: Product[] = [
     title: 'Сывортка LAMMI ME для ухода за ресницами и бровями',
     description: '10гр',
     category: 'Lorem ipsum Lorem ipsum',
-    image: '/Product-2.JPG',
+    image: '/Product-4.JPG',
     price: 3980,
     discount: 50,
   },

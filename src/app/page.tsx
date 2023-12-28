@@ -12,19 +12,21 @@ import { Technology } from "./sections/technology";
 import { getTrainings } from "@/api/training";
 import { getBranches } from "@/api/branch";
 import { getClientCount } from "@/api/clients";
+import { getCustomSpecialists } from "@/api/appointment";
 
 export default async function Home() {
   const trainingsPromise = getTrainings();
   const branchPromise = getBranches();
   const clientsPromise = getClientCount();
-  const [trainings, branches, clients] = await Promise.all([trainingsPromise, branchPromise, clientsPromise]);
+  const specialistsPromise = getCustomSpecialists();
+  const [trainings, branches, clients, specialists] = await Promise.all([trainingsPromise, branchPromise, clientsPromise, specialistsPromise]);
   return (
     <main className={`wrapper`}>
       <Header />
       <Hero />
       <Statistics clients={clients} />
       <div className="py-20"></div>
-      <Staff />
+      <Staff specialists={specialists} />
       <div className="py-20"></div>
       <Products />
       <div className="py-20"></div>
