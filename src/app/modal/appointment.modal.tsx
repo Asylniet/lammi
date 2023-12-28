@@ -1,10 +1,9 @@
-import Button, { StatusEnum } from '@/components/button'
+import Button from '@/components/button'
 import React from 'react'
 import { Branch } from '@/api/branch'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { getDates, getServices, getSpeicalists, getTimes, makeAppointment } from '@/api/appointment'
 import { CustomDatePicker } from './courseSlides/datePicker'
-import { useRouter } from 'next/navigation'
 
 interface Props {
   branches: Branch[],

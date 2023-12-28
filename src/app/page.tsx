@@ -11,16 +11,18 @@ import { Statistics } from "./sections/statistics";
 import { Technology } from "./sections/technology";
 import { getTrainings } from "@/api/training";
 import { getBranches } from "@/api/branch";
+import { getClientCount } from "@/api/clients";
 
 export default async function Home() {
   const trainingsPromise = getTrainings();
   const branchPromise = getBranches();
-  const [trainings, branches] = await Promise.all([trainingsPromise, branchPromise]);
+  const clientsPromise = getClientCount();
+  const [trainings, branches, clients] = await Promise.all([trainingsPromise, branchPromise, clientsPromise]);
   return (
     <main className={`wrapper`}>
       <Header />
       <Hero />
-      <Statistics />
+      <Statistics clients={clients} />
       <div className="py-20"></div>
       <Staff />
       <div className="py-20"></div>

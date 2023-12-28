@@ -11,7 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/effect-creative";
 
-const products: Product[] = new Array(9).fill({
+export const products: Product[] = new Array(9).fill({
   title: 'Lorem ipsum',
   description: 'Lorem ipsum Lorem ipsum',
   category: 'Lorem ipsum Lorem ipsum',
@@ -83,7 +83,7 @@ export const Products = () => {
         {products.map((product, index) => (
           <SwiperSlide key={index}>
             {({ isActive }): React.ReactNode => (
-              <Product {...product} isActive={isActive} />
+              <Product {...product} id={index} isActive={isActive} />
             )}
           </SwiperSlide>
         ))}

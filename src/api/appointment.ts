@@ -80,9 +80,33 @@ export const makeAppointment = async ({branch_id, service_id, employee_id, date_
         time_id,
         phone_number,
       }),
-    })
-    return res.json()
+    }).then(res => res.text())
+    return res;
   } catch (error) {
+    throw error;
+  }
+}
+
+interface Order {
+  client: {
+    full_name: string,
+    delivery_address: string,
+  },
+  products: { id: number, quantity: number }[],
+}
+
+export const makeOrder = async (params: Order): Promise<string> => {
+  try {
+    const res = await fetch(`${API_URL}/orders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(params),
+    }).then(res => res.text())
+    return res;
+  } catch (error) {
+    console.log(error);
     throw error;
   }
 }
