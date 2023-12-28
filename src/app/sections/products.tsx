@@ -11,14 +11,44 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/effect-creative";
 
-export const products: Product[] = new Array(9).fill({
-  title: 'Lorem ipsum',
-  description: 'Lorem ipsum Lorem ipsum',
-  category: 'Lorem ipsum Lorem ipsum',
-  image: '/Product.png',
-  price: 42500,
-  discount: 40,
-});
+export const products: Product[] = [
+  {
+    id: 1,
+    title: 'Премиальные составы для ламинирования LAMMI ME',
+    description: '7мл',
+    category: 'Lorem ipsum Lorem ipsum',
+    image: '/Product-1.JPG',
+    price: 6250,
+    discount: 20,
+  },
+  {
+    id: 2,
+    title: 'Премиум Гель для бровей Herra',
+    description: '10гр',
+    category: 'Lorem ipsum Lorem ipsum',
+    image: '/Product-2.JPG',
+    price: 4150,
+    discount: 40,
+  },
+  {
+    id: 3,
+    title: 'Премиальные составы для ламинирования LAMMI ME',
+    description: '8гр',
+    category: 'Lorem ipsum Lorem ipsum',
+    image: '/Product-3.JPG',
+    price: 1500,
+    discount: 20,
+  },
+  {
+    id: 4,
+    title: 'Сывортка LAMMI ME для ухода за ресницами и бровями',
+    description: '10гр',
+    category: 'Lorem ipsum Lorem ipsum',
+    image: '/Product-2.JPG',
+    price: 3980,
+    discount: 50,
+  },
+];
 
 export const Products = () => {
   const { width } = useGetScreenSize();

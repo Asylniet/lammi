@@ -2,7 +2,7 @@ import Button from '@/components/button'
 import React from 'react'
 import { Branch } from '@/api/branch'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { getDates, getServices, getSpeicalists, getTimes, makeAppointment } from '@/api/appointment'
+import { getCategories, getDates, getServices, getSpeicalists, getTimes, makeAppointment } from '@/api/appointment'
 import { CustomDatePicker } from './courseSlides/datePicker'
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
 export const AppointmentModal: React.FC<Props> = ({ branches }) => {
   const [phone, setPhone] = React.useState('');
   const [branchId, setBranchId] = React.useState<number | undefined>();
+  const [categoryId, setCategoryId] = React.useState<number | undefined>();
   const [serviceId, setServiceId] = React.useState<number | undefined>();
   const [specialistId, setSpecialistId] = React.useState<number | undefined>();
   const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(undefined);
@@ -19,8 +20,12 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
   const [selectedHour, setSelectedHour] = React.useState<number | undefined>(undefined);
 
   React.useEffect(() => {
-    setServiceId(undefined);
+    setCategoryId(undefined);
   }, [branchId]);
+
+  React.useEffect(() => {
+    setServiceId(undefined);
+  }, [categoryId]);
 
   React.useEffect(() => {
     setSpecialistId(undefined);
@@ -34,18 +39,27 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     setSelectedHour(undefined);
   }, [selectedDate]);
 
-  const serviceDisabled = !branchId || branchId < 0;
+  const categoryDisabled = !branchId || branchId < 0;
+  const serviceDisabled = categoryDisabled || !categoryId || categoryId < 0;
   const specialistDisabled = serviceDisabled || !serviceId || serviceId < 0;
   const dateDisabled = specialistDisabled || !specialistId || specialistId < 0;
   const hourDisabled = dateDisabled || !selectedDate;
 
-  const useServiceQuery = (branchId?: number) => useQuery({
-    queryKey: ['services', branchId],
-    queryFn: () => getServices(branchId!),
+  const useCategoryQuery = (branchId?: number) => useQuery({
+    queryKey: ['categories', branchId],
+    queryFn: () => getCategories(branchId!),
+    enabled: !categoryDisabled,
+  });
+
+  const categoryQuery = useCategoryQuery(branchId);
+
+  const useServiceQuery = (branchId?: number, categoryId?: number) => useQuery({
+    queryKey: ['services', branchId, categoryId],
+    queryFn: () => getServices(branchId!, categoryId!),
     enabled: !serviceDisabled,
   });
 
-  const serviceQuery = useServiceQuery(branchId);
+  const serviceQuery = useServiceQuery(branchId, categoryId);
 
   const useSpecialistQuery = (branchId?: number, serviceId?: number) => useQuery({
     queryKey: ['specialists', branchId, serviceId],
@@ -108,6 +122,27 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
             {branches.map((branch, index) => (
               <option key={index} value={branch.id}>{branch.name}</option>
             ))}
+          </select>
+        </div>
+        <div className={`mb-6 ${!categoryQuery.isFetched && "opacity-50 pointer-events-none"}`}>
+          <label htmlFor='category'>Выберите категорию</label>
+          <select 
+            name="category" 
+            id="category" 
+            value={categoryId} 
+            onChange={(e) => setCategoryId(parseInt(e.target.value))} 
+            key={branchId}
+          >
+            {!categoryQuery.isLoading && !categoryQuery.isError && categoryQuery.data && categoryQuery.data.length > 0 && <option value={-1}>Не выбрано</option>}
+            {categoryQuery.isError && <option value={-2}>Произошла ошибка</option>}
+            {categoryQuery.isLoading && <option>Загрузка...</option>}
+            {categoryQuery.isSuccess && (
+              categoryQuery.data.length > 0 ? (
+                categoryQuery.data.map((category, index) => (
+                  <option key={index} value={category.id}>{category.name}</option>
+                ))
+              ) : <option value={-3}>Ничего не найдено</option>
+            )}
           </select>
         </div>
         <div className={`mb-12 ${!serviceQuery.isFetched && "opacity-50 pointer-events-none"}`}>

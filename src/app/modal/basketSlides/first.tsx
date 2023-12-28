@@ -25,13 +25,13 @@ export const First: React.FC<Props> = ({ products }) => {
       ) : (
         <div className='flex flex-col h-full mx-auto max-w-[600px] px-6'>
           <TotalSum />
-          <div className='flex flex-col gap-4 mt-4'>
+          <div className='flex flex-col gap-4 mt-4 max-h-[50vh] overflow-y-scroll'>
             {products.map((product, index) => <ProductPreview key={index} id={product.product.id} />)}
-            <div className="mx-auto w-fit mt-12">
-              <Button className="text-foreground" onClick={() => swiper.slideNext()}>
-                Перейти к оформлению
-              </Button>
-            </div>
+          </div>
+          <div className="w-fit mx-auto mt-4">
+            <Button className="text-foreground" onClick={() => swiper.slideNext()}>
+              Перейти к оформлению
+            </Button>
           </div>
         </div>
       )}

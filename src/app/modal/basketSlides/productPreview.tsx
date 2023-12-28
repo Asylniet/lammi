@@ -10,13 +10,13 @@ export const ProductPreview: React.FC<Props> = ({ id: productId }) => {
   const products = useProductStore(state => state.products);
   const product = products.find(product => product.product.id === productId);
 
-  const { id, title, description, price, discount } = product!.product;
+  const { id, title, description, image, price, discount } = product!.product;
   const addProduct = useProductStore(state => state.addProduct);
   const removeProduct = useProductStore(state => state.removeProduct);
   return (
     <div className='flex gap-3'>
-      <div className='relative flex items-center justify-center bg-accent/40 min-w-[90px] aspect-[0.75]'>
-        <Image src="/Product.png" alt={title} width={40} height={100} />
+      <div className='relative flex items-center justify-center min-w-[90px] aspect-[0.75]'>
+        <Image src={image} alt={title} fill sizes='100%' className='object-contain' />
       </div>
       <div className='flex flex-col'>
         <h1 className='font-bold text-2xl'>{title}</h1>

@@ -27,7 +27,7 @@ export const Product: React.FC<IProps> = ({ id, title, description, category, im
 
   const handleClick = () => {
     const product: Product = {
-      id: Math.floor(id % 2) == 0 ? 2 : 1,
+      id,
       title,
       description,
       category,
@@ -40,7 +40,7 @@ export const Product: React.FC<IProps> = ({ id, title, description, category, im
   }
   return (
     <div className={`${isMobile ? `${isActive ? "active" : "blur-sm opacity-50"}` : ""} transition-all bg-background product m-4 p-4 flex items-center justify-center flex-col text-center`}>
-      <div className="w-1/2 max-h-60 relative aspect-[0.3] mb-4">
+      <div className="w-2/3 max-h-60 relative aspect-[0.8] mb-4">
         <Image src={image} className=' object-contain' sizes='100%' fill alt={title} />
       </div>
       <div className="font-black mb-2">{title}</div>

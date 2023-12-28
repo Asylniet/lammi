@@ -1,13 +1,27 @@
 import { API_URL } from "@/lib/const";
 
+export type Category = {
+  id: number,
+  name: string,
+}
+
+export const getCategories = async (branchId: number): Promise<Category[]> => {
+  try {
+    const res = await fetch(`${API_URL}/categories/${branchId}`)
+    return res.json()
+  } catch (error) {
+    throw error;
+  }
+}
+
 export type Service = {
   id: number,
   name: string,
 }
 
-export const getServices = async (branchId: number): Promise<Service[]> => {
+export const getServices = async (branchId: number, categoryId: number): Promise<Service[]> => {
   try {
-    const res = await fetch(`${API_URL}/services/${branchId}`)
+    const res = await fetch(`${API_URL}/services/${branchId}/${categoryId}`)
     return res.json()
   } catch (error) {
     throw error;
