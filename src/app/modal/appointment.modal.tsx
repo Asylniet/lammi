@@ -4,6 +4,7 @@ import { Branch } from '@/api/branch'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { getCategories, getDates, getServices, getSpeicalists, getTimes, makeAppointment } from '@/api/appointment'
 import { CustomDatePicker } from './courseSlides/datePicker'
+import { formatPhone } from '@/lib/formatPhone'
 
 interface Props {
   branches: Branch[],
@@ -106,7 +107,7 @@ export const AppointmentModal: React.FC<Props> = ({ branches }) => {
     e.preventDefault();
     const dateId = dateQuery.data?.find(date => new Date(date.name).setHours(0, 0, 0, 0) === selectedDate?.setHours(0, 0, 0, 0))?.id;
     appointmentMutation.mutate({
-      phone_number: phone,
+      phone_number: formatPhone(phone),
       branch_id: branchId!,
       category_id: categoryId!,
       service_id: serviceId!,

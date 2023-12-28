@@ -1,5 +1,6 @@
 import { Training, bookTraining } from '@/api/training';
 import Button from '@/components/button';
+import { formatPhone } from '@/lib/formatPhone';
 import { useMutation } from '@tanstack/react-query';
 import React from 'react'
 import { useSwiper } from 'swiper/react';
@@ -20,7 +21,7 @@ export const First: React.FC<Props> = ({ trainings }) => {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    mutation.mutate({ phone, trainingId: selected });
+    mutation.mutate({ phone: formatPhone(phone), trainingId: selected });
   }
 
   const [selected, setSelected] = React.useState<number>(trainings[0].id);
