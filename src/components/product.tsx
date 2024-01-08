@@ -49,7 +49,7 @@ export const Product: React.FC<IProps> = ({ id, title, description, category, im
       <div dangerouslySetInnerHTML={{ __html: category }} className='text-accent mb-2'></div>
       <div className="flex w-11/12 justify-between items-center mb-4">
         <div className="line-through text-accent">{price.toLocaleString('ru-RU')}₸</div>
-        <div>{((100 - discount) / 100 * price).toLocaleString("ru-RU")}₸ ${id === 3 && "(каждая)"}</div>
+        <div>{((100 - discount) / 100 * price).toLocaleString("ru-RU")}₸ {id === 3 && "(каждая)"}</div>
       </div>
       <button onClick={handleClick} className={`button transition-all white uppercase w-11/12 font-black py-2 px-8 mx-auto hover:rounded-md`}>
         Купить
