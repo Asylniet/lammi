@@ -20,6 +20,7 @@ interface IProps extends Product {
 }
 
 export const Product: React.FC<IProps> = ({ id, title, description, category, image, price, discount = 0, isActive = false }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
   const openModal = useModalStore(state => state.openModal);
   const addProduct = useProductStore(state => state.addProduct);
   const { width } = useGetScreenSize();
@@ -43,13 +44,12 @@ export const Product: React.FC<IProps> = ({ id, title, description, category, im
       <div className="w-2/3 max-h-60 relative aspect-[0.8] mb-4">
         <Image src={image} priority className=' object-contain' sizes='100%' fill alt={title} />
       </div>
-      <div className="font-black mb-2">{title}</div>
-      <p>{description}</p>
-      <div className='text-accent mb-2'>{category}</div>
-      <div className='text-accent'>LOREM</div>
+      <div className="font-black mb-2" onClick={() => setIsOpen(val => !val)}>{title}</div>
+      <p className={isOpen ? "line-clamp-none" : "line-clamp-2"} onClick={() => setIsOpen(val => !val)} dangerouslySetInnerHTML={{ __html: description }}></p>
+      <div dangerouslySetInnerHTML={{ __html: category }} className='text-accent mb-2'></div>
       <div className="flex w-11/12 justify-between items-center mb-4">
         <div className="line-through text-accent">{price.toLocaleString('ru-RU')}₸</div>
-        <div>{((100 - discount) / 100 * price).toLocaleString("ru-RU")}₸</div>
+        <div>{((100 - discount) / 100 * price).toLocaleString("ru-RU")}₸ ${id === 3 && "(каждая)"}</div>
       </div>
       <button onClick={handleClick} className={`button transition-all white uppercase w-11/12 font-black py-2 px-8 mx-auto hover:rounded-md`}>
         Купить

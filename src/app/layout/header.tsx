@@ -24,9 +24,11 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
-        <Button size='small'>
-          Контакты
-        </Button>
+        <a href="#contacts">
+          <Button size='small'>
+            Контакты
+          </Button>
+        </a>
       </div>
     </header>
   )

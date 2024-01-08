@@ -26,13 +26,13 @@ export const Feedback = () => {
     {
       name: "Светлана",
       age: 30,
-      comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper, turpis non ullamcorper faucibus, lacus ex sagittis magna, sed pharetra augue purus id quam. ",
+      comment: "Спасибо, все очень понравилось! Буду рекомендовать вас своим знакомым!",
       rating: 5,
     },
     {
       name: "Галина",
       age: 21,
-      comment: "Спасибо за прекрасное настроение и красивые брови! Я в восторге!",
+      comment: "Профессиональный подход, качественный результат, приятная атмосфера. Спасибо!",
       rating: 4,
     },
   ];

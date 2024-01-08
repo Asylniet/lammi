@@ -18,9 +18,6 @@ export const Advantages = () => {
           <WhySvg />
         </div>
       </div>
-      <p className='text-lg max-w-4xl mb-8'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper, turpis non ullamcorper faucibus, lacus ex sagittis magna 
-      </p>
       <div className="flex flex-wrap gap-6">
         <div className="relative flex-1 background-gradient flex justify-end text-center pb-6 flex-col h-72 rounded-md px-2 mx-auto min-w-[250px] max-w-[300px] sm:max-w-none xs:min-w-[300px] xl:min-w-[400px]">
           <Parallax speed={4}>

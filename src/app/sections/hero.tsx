@@ -19,7 +19,7 @@ export const Hero: React.FC = ({ }) => {
   const openModal = useModalStore(state => state.openModal);
   return (
     <section id="hero" className="pt-24 sm:pt-0 h-screen min-h-[18.75rem] max-h-[60rem] flex flex-col items-center sm:items-stretch sm:justify-center relative px-2 sm:px-3 md:px-4">
-      <div className="relative w-full">
+      <div className="relative w-full isolate">
         <Parallax speed={10} className="relative z-10">
           <div className="hidden sm:block absolute top-full translate-x-14 translate-y-64 right-full w-96 aspect-[0.7] pointer-events-none">
             <Image fetchPriority="low" src="/Brush.png" alt="" fill sizes="24rem" />
@@ -48,11 +48,6 @@ export const Hero: React.FC = ({ }) => {
               Записаться
             </Button>
           </div>
-        </div>
-        <div className="text-center">
-          <a className="sm:hidden font-black" href="tel:+77778889944">
-            +77778889944 - Менеджер Ольга
-          </a>
         </div>
       </div>
     </section>

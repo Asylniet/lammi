@@ -14,36 +14,36 @@ import "swiper/css/effect-creative";
 export const products: Product[] = [
   {
     id: 1,
-    title: 'Премиальные составы для ламинирования LAMMI ME',
-    description: '7мл',
-    category: 'Lorem ipsum Lorem ipsum',
+    title: 'HALAL Составы для ламинирования Lammi me. 7 мл. Умываться можно сразу.',
+    description: 'Состав 2 шага: <br/> Aqua (Water\Eau), Cetearly, Lauryl, Hydrogen Peroxide, Ceteareth-20, Ceteareth-30, Etidronic Acid. <br/> Состав 1 шага:Aqua (Water\'Eau), Ammonium thioglycolate, Cetearly, Lauryl, Ceteareth-20, Ceteareth-30, Ammonia, parfum (Fragrance), Tetrasodium Edta',
+    category: '<br/>Инструкция: <br/> Тонкий волос от 3 минут <br/> Средний волос от 4 минут <br/> Жесткий волос от 5 минут <br/><br/> Made in Korea',
     image: '/Product-1.JPG',
     price: 6250,
     discount: 20,
   },
   {
     id: 2,
-    title: 'Премиум Гель для бровей Herra',
-    description: '10гр',
-    category: 'Lorem ipsum Lorem ipsum',
+    title: 'Гель для бровей Herra с эффектом ламинирование бровей,сильная фиксация',
+    description: 'Состав: Purified Water, Bis-isobutyl, Peg/PPG-10/Di-methicone, Copolymer, 2-Ethylhexanoicacid Hexadecyl Ester, Polysorbate 80 Hyaluronic Acid, Propanediol Benzyl Alcohol, Polysorbate 20',
+    category: '<br/>Способ применения: <br/> нанесите гель против роста бровей и расчешите по нужной форме.',
     image: '/Product-2.JPG',
     price: 4150,
     discount: 40,
   },
   {
     id: 3,
-    title: 'Премиальные составы для ламинирования LAMMI ME',
-    description: '8гр',
-    category: 'Lorem ipsum Lorem ipsum',
+    title: 'HALAL Составы для ламинирования Lammi me. 0,8 мл. Умываться можно сразу',
+    description: 'Состав 2 шага: <br/> Aqua (Water\Eau), Cetearly, Lauryl, Hydrogen Peroxide, Ceteareth-20, Ceteareth-30, Etidronic Acid. <br/> Состав 1 шага:Aqua (Water\'Eau), Ammonium thioglycolate, Cetearly, Lauryl, Ceteareth-20, Ceteareth-30, Ammonia, parfum (Fragrance), Tetrasodium Edta',
+    category: '<br/>Инструкция: <br/> Тонкий волос от 3 минут <br/> Средний волос от 4 минут <br/> Жесткий волос от 5 минут <br/><br/> Made in Korea',
     image: '/Product-3.JPG',
     price: 1500,
     discount: 20,
   },
   {
     id: 4,
-    title: 'Сывортка LAMMI ME для ухода за ресницами и бровями',
-    description: '10гр',
-    category: 'Lorem ipsum Lorem ipsum',
+    title: 'Сыворотка для роста и укрепления ресниц и бровей Lammi me. Сыворотка на основе кератина и протеинов шелка.',
+    description: 'Состав сыворотки: Water 71%; Propylene Glycol 8%; Glycerin 5%; Olive Oil 7%; Butylene Glycol 3%; PEG-7 Glyceryl Cocoate 1%; Phenoxyethanol 0.3%; PEG-40 Hydrogenated Castor Oil 0.2%; Squalane 0.5%; Hydrolyzed Wheat Protein 0.5%; Sodium Hyaluronate 0.8%; Dextran 0.5%; Golden Chamomile (CHRYSANTHELLUM INDICUM) Extract 0.3%; Portulaca (PORTULACA OLERACEA) Extract 0.5%; Geranium Geranium (PELARGONIUM GRAVEOLENS) Extract 1%; Methylparaben 0.2%; CI 19140 (Ingredient B6291) 0.5%',
+    category: '<br/>Способ применения: <br/> наносим на ресницы и брови утром,вечером. Так же можно использовать как базу под тушь.',
     image: '/Product-4.JPG',
     price: 3980,
     discount: 50,
@@ -66,9 +66,6 @@ export const Products = () => {
           <OurSvg />
         </div>
       </div>
-      <p className='text-lg max-w-4xl mb-8'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper, turpis non ullamcorper faucibus, lacus ex sagittis magna, sed pharetra augue purus id quam. 
-      </p>
       <Swiper
         modules={[EffectCreative, Navigation]}
         navigation={{
