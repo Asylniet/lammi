@@ -22,25 +22,27 @@ export default async function Home() {
   const specialistsPromise = getCustomSpecialists();
   const [trainings, branches, clients, specialists] = await Promise.all([trainingsPromise, branchPromise, clientsPromise, specialistsPromise]);
   return (
-    <main className={`wrapper bg-background text-foreground`}>
-      <Header />
-      <Hero />
-      <Statistics clients={clients} />
-      <div className="py-20"></div>
-      <Staff specialists={specialists} />
-      <div className="py-20"></div>
-      <Products />
-      <div className="py-20"></div>
-      <Advantages />
-      <div className="py-20"></div>
-      <Technology />
-      <div className="py-20"></div>
-      <Feedback />
-      <div className="py-20"></div>
-      <Salons />
-      <div className="py-10"></div>
-      <Footer />
-      <Modal trainings={trainings} branches={branches} />
+    <main className={`w-full bg-background text-foreground`}>
+      <div className="wrapper">
+        <Header />
+        <Hero />
+        <Statistics clients={clients} />
+        <div className="py-20"></div>
+        <Staff specialists={specialists} />
+        <div className="py-20"></div>
+        <Products />
+        <div className="py-20"></div>
+        <Advantages />
+        <div className="py-20"></div>
+        <Technology />
+        <div className="py-20"></div>
+        <Feedback />
+        <div className="py-20"></div>
+        <Salons />
+        <div className="py-10"></div>
+        <Footer />
+        <Modal trainings={trainings} branches={branches} />
+      </div>
     </main>
   )
 }
