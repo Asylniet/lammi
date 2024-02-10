@@ -1,7 +1,7 @@
 import React from "react"
 
 interface IProps {
-  digit: number,
+  digit: string,
   className?: string,
   aos: string,
   aosDelay: string,

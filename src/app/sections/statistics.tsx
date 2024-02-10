@@ -11,6 +11,8 @@ interface StatisticsProps {
 
 export const Statistics: React.FC<StatisticsProps> = ({ clients }) => {
   const total = clients.reduce((acc, cur) => acc + cur.clients_count, 0);
+  const startCount = new Date(2024, 1, 7);
+  const differenceInDays = Math.floor((new Date().getTime() - startCount.getTime()) / (1000 * 3600 * 24));
   return (
     <section className='wrapper px-2 sm:px-3 md:px-4 flex flex-wrap gap-20 justify-around py-10 pt-20'>
       <div className="flex flex-col items-end py-10 min-w-[280px]">
@@ -32,7 +34,7 @@ export const Statistics: React.FC<StatisticsProps> = ({ clients }) => {
             <WeSvg />
           </div>
         </div>
-        <Numbers className='mb-8 sm:mb-14' number={3216} />
+        <Numbers className='mb-8 sm:mb-14' number={1000 + differenceInDays} />
         <h2 data-aos="fade-up" data-aos-delay="300" className="w-full uppercase text-center text-xl font-black">
           довольных студентов
         </h2>

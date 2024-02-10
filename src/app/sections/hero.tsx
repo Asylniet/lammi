@@ -37,15 +37,15 @@ export const Hero: React.FC = ({ }) => {
           <span className="hidden sm:inline">- </span>
           Сеть салонов экспертного класса <br /> по ламинации ресниц и бровей 
         </h2>
-        <Button className="hidden sm:block" onClick={() => openModal("course")}>
-          Записаться
+        <Button className="hidden sm:block" onClick={() => openModal("appointment")}>
+          Записаться на прием
         </Button>
         <div className="mx-auto sm:absolute sm:-right-24 xl:-right-40 sm:top-1/2 max-w-lg sm:max-w-3xl w-full sm:w-3/5 sm:-translate-y-1/2 sm:-z-[1] mb-10 sm:mb-0">
           <div className="flex flex-col items-center justify-end relative w-full aspect-[1.2]">
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-4/6 blur-3xl aspect-square rounded-full bg-primary"></div>
             <Image src="/Hero-right.png" priority sizes="100%" fill alt="" />
-            <Button className="sm:hidden block" onClick={() => openModal("course")}>
-              Записаться
+            <Button className="sm:hidden block" onClick={() => openModal("appointment")}>
+              Записаться на прием
             </Button>
           </div>
         </div>

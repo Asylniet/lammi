@@ -7,7 +7,7 @@ export type Training = {
 
 export const getTrainings = async (): Promise<Training[]> => {
   try {
-    const res = await fetch(`${API_URL}/trainings`)
+    const res = await fetch(`${API_URL}/trainings`, { cache: 'no-store' })
     return res.json()
   } catch (error) {
     console.error(error);
