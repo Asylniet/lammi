@@ -10,11 +10,20 @@ export type PaymentInfo = {
 }
 
 export async function getPaymentInfo(id: string): Promise<PaymentInfo> {
-  try {
-    const res = await fetch(`${API_URL}/pay/${id}`)
-    return res.json()
-  } catch (error) {
-    console.error(error);
-    throw error;
+  return {
+    status: "new",
+    invoice_id: 0,
+    sum: 0,
+    description: "",
+    account_id: 0,
+    public_id: "",
   }
+  // try {
+  //   const res = await fetch(`${API_URL}/pay/${id}`)
+  //   if(!res.ok) throw new Error("Failed to fetch payment info")
+  //   return res.json()
+  // } catch (error) {
+  //   console.error(error);
+  //   throw error;
+  // }
 }
