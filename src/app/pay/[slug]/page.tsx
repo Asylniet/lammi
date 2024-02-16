@@ -21,6 +21,7 @@ export async function generateMetadata(
 }
 
 export default async function Payment({ params }: { params: { slug: string } }) {
+  const PUBLIC_ID = "pk_ff3e957b80016541e97a935da3b80";
   const payment = await getPaymentInfo(params.slug);
   if (payment.status === "new") {
     return (
@@ -39,15 +40,15 @@ export default async function Payment({ params }: { params: { slug: string } }) 
             var widget = new cp.CloudPayments();
             widget.pay('charge', 
                 {
-                    publicId: '${payment.public_id}', //id из личного кабинета
-                    description: '${payment.description}', //назначение
-                    amount: ${payment.sum}, //сумма
-                    currency: 'KZT', //валюта
-                    accountId: '${payment.account_id}', //идентификатор плательщика (необязательно)
-                    invoiceId: '${payment.invoice_id}', //номер заказа
-                    email: 'user@example.com', //email плательщика (необязательно)
-                    skin: "mini", //дизайн виджета (необязательно)
-                    autoClose: 3, //время в секундах до авто-закрытия виджета (необязательный)
+                    publicId: '${PUBLIC_ID}', 
+                    description: '${payment.description}',
+                    amount: ${payment.sum},
+                    currency: 'KZT',
+                    accountId: '${payment.account_id}',
+                    invoiceId: '${payment.invoice_id}',
+                    email: '',
+                    skin: "mini",
+                    autoClose: 3,
                     data: {
                         myProp: 'myProp value'
                     },
@@ -65,15 +66,9 @@ export default async function Payment({ params }: { params: { slug: string } }) 
                     }
                 },
                 {
-                    onSuccess: function (options) { // success
-                        //действие при успешной оплате
-                    },
-                    onFail: function (reason, options) { // fail
-                        //действие при неуспешной оплате
-                    },
-                    onComplete: function (paymentResult, options) { //Вызывается как только виджет получает от api.cloudpayments ответ с результатом транзакции.
-                        //например вызов вашей аналитики
-                    }
+                    onSuccess: function (options) {},
+                    onFail: function (reason, options) {},
+                    onComplete: function (paymentResult, options) {}
                 }
             )
           };

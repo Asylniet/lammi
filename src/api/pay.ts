@@ -6,7 +6,6 @@ export type PaymentInfo = {
   sum: number,
   description: string,
   account_id: number,
-  public_id: string,
 }
 
 export async function getPaymentInfo(id: string): Promise<PaymentInfo> {
