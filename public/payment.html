@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script src="https://widget.cloudpayments.kz/bundles/cloudpayments.js"></script>
+    <script 
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+      crossorigin="anonymous"
+    />
+    <title>{{description}}</title>
+  </head>
+  <body>
+    <script>
+      const pathname = window.location.pathname;
+      console.log(pathname)
+      // this.pay = function () {
+      //   var widget = new cp.CloudPayments();
+      //   widget.pay('charge', // или 'charge'
+      //     { //options
+      //       publicId: '{{public_id}}', //id из личного кабинета
+      //       description: '{{description}}', //назначение
+      //       amount: {{sum}}, //сумма
+      //       currency: 'KZT', //валюта
+      //       accountId: '{{account_id}}', //идентификатор плательщика (необязательно)
+      //       invoiceId: '{{invoice_id}}', //номер заказа
+      //       email: 'user@example.com', //email плательщика (необязательно)
+      //       skin: "mini", //дизайн виджета (необязательно)
+      //       autoClose: 3, //время в секундах до авто-закрытия виджета (необязательный)
+      //       data: {
+      //           myProp: 'myProp value'
+      //       },
+      //       payer: {
+      //           firstName: 'Lammime',
+      //           lastName: 'Whatsapp Bot',
+      //           middleName: 'Payment',
+      //           birth: '2004-02-02',
+      //           address: 'Gagarin Avenue, 124',
+      //           street: 'Gagarin Avenua',
+      //           city: 'Almaty',
+      //           country: 'KZ',
+      //           phone: '+77787039850',
+      //           postcode: '050057'
+      //       }
+      //     },
+      //     {
+      //       onSuccess: function (options) { 
+      //         // success
+      //         //действие при успешной оплате
+      //       },
+      //       onFail: function (reason, options) { 
+      //         // fail
+      //         //действие при неуспешной оплате
+      //       },
+      //       onComplete: function (paymentResult, options) { 
+      //           //Вызывается как только виджет получает от api.cloudpayments ответ с результатом транзакции.
+      //           //например вызов вашей аналитики
+      //       }
+      //     }
+      //   )
+      // };
+      this.pay();
+    </script>
+  </body>
+</html>
+
