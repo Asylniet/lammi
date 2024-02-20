@@ -66,7 +66,9 @@ export default async function Payment({ params }: { params: { slug: string } }) 
                     }
                 },
                 {
-                    onSuccess: function (options) {},
+                    onSuccess: function (options) {
+                      window.location.href = "/";
+                    },
                     onFail: function (reason, options) {},
                     onComplete: function (paymentResult, options) {}
                 }
