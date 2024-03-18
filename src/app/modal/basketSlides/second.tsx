@@ -29,11 +29,11 @@ export const Second = () => {
       client: {
         full_name: name,
         delivery_address: address,
+        phone_number: formatPhone(number),
       },
       products: products.map((product) => ({
         id: product.product.id,
         quantity: product.quantity,
-        phone_number: formatPhone(number),
       })),
     });
   };

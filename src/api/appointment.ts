@@ -134,8 +134,9 @@ interface Order {
   client: {
     full_name: string;
     delivery_address: string;
+    phone_number: string;
   };
-  products: { id: number; quantity: number; phone_number: string }[];
+  products: { id: number; quantity: number }[];
 }
 
 export const makeOrder = async (params: Order): Promise<string> => {
