@@ -1,1 +1,1 @@
-export const API_URL = "https://lammi.ddns.net"
+export const API_URL = "lammi.sky-ddns.kz";
