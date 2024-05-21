@@ -14,18 +14,25 @@ import { getBranches } from "@/api/branch";
 import { getClientCount } from "@/api/clients";
 import { getCustomSpecialists } from "@/api/appointment";
 import { Footer } from "./layout/footer";
+import Widget from "@/components/widget";
 
 export default async function Home() {
   const trainingsPromise = getTrainings();
   const branchPromise = getBranches();
   const clientsPromise = getClientCount();
   const specialistsPromise = getCustomSpecialists();
-  const [trainings, branches, clients, specialists] = await Promise.all([trainingsPromise, branchPromise, clientsPromise, specialistsPromise]);
+  const [trainings, branches, clients, specialists] = await Promise.all([
+    trainingsPromise,
+    branchPromise,
+    clientsPromise,
+    specialistsPromise,
+  ]);
   return (
     <main className={`w-full bg-background text-foreground`}>
       <div className="wrapper">
         <Header />
         <Hero />
+        <Widget />
         <Statistics clients={clients} />
         <div className="py-20"></div>
         <Staff specialists={specialists} />
@@ -44,5 +51,5 @@ export default async function Home() {
         <Modal trainings={trainings} branches={branches} />
       </div>
     </main>
-  )
+  );
 }

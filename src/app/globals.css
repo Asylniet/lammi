@@ -51,12 +51,17 @@ section {
 }
 
 .button:not(.white) {
-  box-shadow: 0px -3px 2px 0px rgba(0, 0, 0, 0.50) inset;
-  background: linear-gradient(95deg, #D18692 19.08%, #DDAAB1 51.76%, #D18692 97.32%);
+  box-shadow: 0px -3px 2px 0px rgba(0, 0, 0, 0.5) inset;
+  background: linear-gradient(
+    95deg,
+    #d18692 19.08%,
+    #ddaab1 51.76%,
+    #d18692 97.32%
+  );
 }
 
 .button.white {
-  background-color: #FFF;
+  background-color: #fff;
   color: rgb(var(--color-background));
 }
 
@@ -87,13 +92,24 @@ section {
 }
 
 .button:disabled {
-  background: linear-gradient(95deg, #88565e 19.08%, #a58085 51.76%, #9b646e 97.32%);
+  background: linear-gradient(
+    95deg,
+    #88565e 19.08%,
+    #a58085 51.76%,
+    #9b646e 97.32%
+  );
   color: rgba(var(--color-foreground), 0.7);
   cursor: not-allowed;
 }
 
 .number_card {
-  background: linear-gradient(95deg, #D18692 19.08%, #DDAAB1 51.76%, #D18692 97.32%), #000;
+  background: linear-gradient(
+      95deg,
+      #d18692 19.08%,
+      #ddaab1 51.76%,
+      #d18692 97.32%
+    ),
+    #000;
 }
 
 .number_card::after {
@@ -122,7 +138,7 @@ section {
 }
 
 .svg-shadow {
-  filter: drop-shadow(0px 20px 20px #D18692);
+  filter: drop-shadow(0px 20px 20px #d18692);
 }
 
 @media screen and (min-width: 520px) {
@@ -132,11 +148,11 @@ section {
   }
 }
 .product:hover {
-  box-shadow: 0px 0px 10px rgba(var(--color-foreground), 0.20);
+  box-shadow: 0px 0px 10px rgba(var(--color-foreground), 0.2);
 }
 
 .product.active {
-  box-shadow: 0px 0px 10px rgba(var(--color-foreground), 0.20);
+  box-shadow: 0px 0px 10px rgba(var(--color-foreground), 0.2);
 }
 
 .no-highlight {
@@ -150,12 +166,23 @@ section {
 }
 
 .background-gradient {
-  background: linear-gradient(231deg, #D18692 32.16%, #DDAAB1 51.17%, #D18692 77.66%), #D9D9D9;
+  background: linear-gradient(
+      231deg,
+      #d18692 32.16%,
+      #ddaab1 51.17%,
+      #d18692 77.66%
+    ),
+    #d9d9d9;
   box-shadow: 0px -7px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .feedback-card {
-  background: linear-gradient(180deg, #D998A2 28.65%, #F8DBDF 56.25%, #D28894 84.9%);
+  background: linear-gradient(
+    180deg,
+    #d998a2 28.65%,
+    #f8dbdf 56.25%,
+    #d28894 84.9%
+  );
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -165,7 +192,8 @@ label {
   font-size: 0.75rem;
 }
 
-input, select {
+input,
+select {
   border: 1px solid transparent;
   border-bottom: 1px solid rgb(var(--color-accent));
   background: none;
@@ -183,7 +211,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -239,12 +267,65 @@ input::placeholder {
 }
 
 @keyframes rotate {
-  100% {transform: rotate(360deg);}
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes dash {
-  0% {stroke-dasharray: 1, 150; stroke-dashoffset: 0;}
-  50% {stroke-dasharray: 90, 150; stroke-dashoffset: -35;}
-  100% {stroke-dasharray: 90, 150; stroke-dashoffset: -124;}
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }
 
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+#widget a {
+  padding: 1rem;
+  background-color: green;
+  animation: pulse 2s infinite;
+  border-radius: 50%;
+  width: 4rem;
+  aspect-ratio: 1/1;
+  --color: 0, 128, 0;
+}
+#widget a:nth-child(2) {
+  --color: 35, 0, 232;
+  background-color: blue;
+}
+#widget img {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 50%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--color), 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(var(--color), 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--color), 0);
+  }
+}
