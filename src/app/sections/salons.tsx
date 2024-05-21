@@ -14,7 +14,7 @@ export const Salons = () => {
           <SalonSvg />
         </div>
       </div>
-      <div className="flex md:flex-row flex-col flex-wrap justify-center md:justify-between items-start gap-10 md:gap-6 mb-12">
+      <div className="flex md:flex-row flex-col flex-wrap justify-center md:justify-between items-start gap-10 md:gap-6 mb-12 text-lg sm:text-base">
         <div
           data-aos="fade-up"
           data-aos-delay="100"

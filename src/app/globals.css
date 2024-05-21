@@ -301,7 +301,7 @@ input::placeholder {
   background-color: green;
   animation: pulse 2s infinite;
   border-radius: 50%;
-  width: 4rem;
+  width: 5em;
   aspect-ratio: 1/1;
   --color: 0, 128, 0;
 }
@@ -313,6 +313,13 @@ input::placeholder {
   object-fit: contain;
   width: 100%;
   border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  #widget a {
+    padding: 1.2rem;
+    width: 4rem;
+  }
 }
 
 @keyframes pulse {
