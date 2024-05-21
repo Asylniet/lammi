@@ -7,6 +7,8 @@ import { Training } from "@/api/training";
 import { Branch } from "@/api/branch";
 import { BasketModal } from "./basket.modal";
 import { useProductStore } from "@/store/products";
+import ContactsModal from "./contacts.modal";
+import WhatsappModal from "./whatsapp.modal";
 
 export type ModalTypes = keyof typeof modals;
 
@@ -14,6 +16,8 @@ const modals = {
   appointment: AppointmentModal,
   course: CourseModal,
   basket: BasketModal,
+  contacts: ContactsModal,
+  whatsapp: WhatsappModal,
 };
 
 interface Props {

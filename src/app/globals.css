@@ -296,7 +296,7 @@ input::placeholder {
   right: 1rem;
   z-index: 2;
 }
-#widget a {
+#widget div {
   padding: 1rem;
   background-color: green;
   animation: pulse 2s infinite;
@@ -305,7 +305,7 @@ input::placeholder {
   aspect-ratio: 1/1;
   --color: 0, 128, 0;
 }
-#widget a:nth-child(2) {
+#widget div:nth-child(2) {
   --color: 35, 0, 232;
   background-color: blue;
 }
